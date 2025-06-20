@@ -3,8 +3,8 @@ import newvieww from '../views/new.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: '/login',
+    name: 'new',
     component: newvieww
   }
 ]
