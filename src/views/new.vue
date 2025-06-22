@@ -14,7 +14,7 @@
     <el-container>
       <!-- 左侧菜单 -->
       <el-aside class="aside">
-          <el-menu  class="el-menu-vertical-demo" :default-openeds="['1']"  v-model:default-active="activeMenu">
+          <el-menu  class="el-menu-vertical-demo"   v-model:default-active="activeMenu">
           <el-sub-menu index="1">
           <template #title>
              <div class="menu-item-content">
