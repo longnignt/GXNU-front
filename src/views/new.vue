@@ -14,7 +14,7 @@
     <el-container>
       <!-- 左侧菜单 -->
       <el-aside class="aside">
-          <el-menu  class="el-menu-vertical-demo"   v-model:default-active="activeMenu">
+          <el-menu  class="el-menu-vertical-demo"   v-model:default-active="activeMenu"  @select="handleMenuSelect">
           <el-sub-menu index="1">
           <template #title>
              <div class="menu-item-content">
@@ -179,7 +179,7 @@
 
       <!-- 右侧主内容区 -->
       <el-main class="main">
-        
+        <router-view />
       </el-main>
     </el-container>
   </el-container>
@@ -188,10 +188,18 @@
 <script setup>
 import { ref } from 'vue';
 import { HomeFilled, Document } from '@element-plus/icons-vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const handleMenuSelect = (index) => {
+  // 根据 index 映射到对应的路由路径
+  const routes = {
+    '1-1': '/middle', // 学科水平概览
 
+  };
 
-const goToDetail = () => {
-  // 跳转到明细查询页面的逻辑
+  if (routes[index]) {
+    router.push(routes[index]);
+  }
 };
 const activeMenu = ref('');
 </script>

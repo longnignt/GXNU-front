@@ -1,12 +1,20 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import newvieww from '../views/new.vue'
+
 
 const routes = [
   {
-    path: '/',
-    name: 'new',
-    component: newvieww
+  path: '/',
+  name: 'new',
+  component: () => import('../views/new.vue'),
+  children: [
+    {
+      path: 'middle', // 注意这里是相对路径
+      name: 'Middle',
+      component: () => import('../views/middle/index.vue')
+    }
+  ]
   }
+  
 ]
 
 const router = createRouter({
