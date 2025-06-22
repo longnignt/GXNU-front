@@ -20,7 +20,7 @@
              <div class="menu-item-content">
              <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
              <span>中心概况</span>
-             </div>
+             </div>                                  
           </template>
           <el-menu-item index="1-1">
           <div class="menu-item-content">
@@ -40,20 +40,140 @@
           </el-sub-menu>
 
 
-          <el-menu-item index="2">
-            <div class="menu-item-content">
-              <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
-              <span>中心概况</span>
-            </div>
-            </el-menu-item>
+          <el-sub-menu index="2">
+          <template #title>
+             <div class="menu-item-content">
+             <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
+             <span>学科概况</span>
+             </div>
+          </template>
+          <el-menu-item index="2-1">
+          <div class="menu-item-content">
+          <span>学科水平概览</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="2-2">
+          <div class="menu-item-content">
+          <span>学科布局演化</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="2-3">
+          <div class="menu-item-content">
+          <span>学科布局排名</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="2-4">
+          <div class="menu-item-content">
+          <span>学科评估结果</span>
+          </div>
+          </el-menu-item>
+          </el-sub-menu>
 
-           <el-menu-item index="3">
-            <div class="menu-item-content">
-              <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
-              <span>学科概况</span>
-            </div>
-            </el-menu-item>
-          <!-- 其他菜单项... --> 
+
+          <el-sub-menu index="3">
+          <template #title>
+             <div class="menu-item-content">
+             <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
+             <span>专项分析</span>
+             </div>
+          </template>
+          <el-menu-item index="3-1">
+          <div class="menu-item-content">
+          <span>单个学科建设</span>
+          </div>
+          </el-menu-item>
+          </el-sub-menu>
+
+          <el-sub-menu index="4">
+          <template #title>
+             <div class="menu-item-content">
+             <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
+             <span>情报消息</span>
+             </div>
+          </template>
+          <el-menu-item index="4-1">
+          <div class="menu-item-content">
+          <span>业界消息</span>
+          </div>
+          </el-menu-item>
+           <el-menu-item index="4-2">
+          <div class="menu-item-content">
+          <span>学科发展信息</span>
+          </div>
+          </el-menu-item>
+           <el-menu-item index="4-3">
+          <div class="menu-item-content">
+          <span>双一流建设</span>
+          </div>
+          </el-menu-item>
+          </el-sub-menu>
+          
+          <el-sub-menu index="5">
+          <template #title>
+             <div class="menu-item-content">
+             <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
+             <span>数据与资源</span>
+             </div>
+          </template>
+          <el-menu-item index="5-1">
+          <div class="menu-item-content">
+          <span>科学研究</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="5-2">
+          <div class="menu-item-content">
+          <span>人才培养</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="5-3">
+          <div class="menu-item-content">
+          <span>社会服务</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="5-4">
+          <div class="menu-item-content">
+          <span>学科特色与方向</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="5-5">
+          <div class="menu-item-content">
+          <span>国际合作与交流</span>
+          </div>
+          </el-menu-item>        
+          </el-sub-menu>
+
+          <el-sub-menu index="6">
+          <template #title>
+             <div class="menu-item-content">
+             <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
+             <span>成果推广</span>
+             </div>
+          </template>
+          <el-menu-item index="6-1">
+          <div class="menu-item-content">
+          <span>推广宣传</span>
+          </div>
+          </el-menu-item>
+          <el-menu-item index="6-2">
+          <div class="menu-item-content">
+          <span>第三方成果及资源</span>
+          </div>
+          </el-menu-item>
+          </el-sub-menu>
+
+          <el-sub-menu index="7">
+          <template #title>
+             <div class="menu-item-content">
+             <HomeFilled style="width: 1.2em; height: 1.2em; color: white;" />
+             <span>用户管理</span>
+             </div>
+          </template>
+          <el-menu-item index="7-1">
+          <div class="menu-item-content">
+          <span>权限</span>
+          </div>
+          </el-menu-item>
+          </el-sub-menu>
         </el-menu>
       </el-aside>
 
@@ -68,11 +188,7 @@
 <script setup>
 import { ref } from 'vue';
 import { HomeFilled, Document } from '@element-plus/icons-vue';
-const overviewData = ref([
-  { title: '双一流学科数', value: '0个', subtitle: '2022年' },
-  { title: '第5轮', value: '2个', subtitle: '2024年' },
-  // 其他数据项...
-]);
+
 
 const goToDetail = () => {
   // 跳转到明细查询页面的逻辑
@@ -151,7 +267,7 @@ const activeMenu = ref('');
 }
 
 .aside {
-  width: 64px;
+  width: 100px;
   background-color:#030541;
   border-right: none;
 }
@@ -189,7 +305,7 @@ const activeMenu = ref('');
 }
 .el-sub-menu .el-menu-item {
   padding-left: 0 !important; /* 确保子菜单项紧靠左侧 */
-  background-color: #030541;
+  background-color: #56577e;
   border: 1px solid rgba(255, 255, 255, 0.2);
 } 
 
