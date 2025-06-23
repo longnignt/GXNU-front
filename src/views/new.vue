@@ -194,7 +194,7 @@ const handleMenuSelect = (index) => {
   // 根据 index 映射到对应的路由路径
   const routes = {
     '1-1': '/middle', // 学科水平概览
-
+     '2-1':'/order'
   };
 
   if (routes[index]) {
