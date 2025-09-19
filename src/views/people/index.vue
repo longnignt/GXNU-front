@@ -1,20 +1,23 @@
 <template>
   <div class="researchers-page">
-    <!-- 使用Element Plus的栅格系统布局研究人员卡片 -->
-    <el-row :gutter="20" justify="center">
-      <!-- 循环渲染研究人员列表 -->
-      <el-col 
-        v-for="researcher in researchers" 
-        :key="researcher.id" 
-        :xs="24" :sm="12" :md="8" :lg="6"
-      >
-        <!-- 使用ResearcherCard组件展示研究人员信息 -->
-        <researcher-card :researcher="researcher"/>
-      </el-col>
-    </el-row>
-    
-    <!-- 分页组件 -->
-    <div class="pagination">
+    <!-- 上半部分：卡片区域 -->
+    <div class="cards-section">
+      <el-row :gutter="20" justify="start">
+        <el-col
+          v-for="researcher in researchers"
+          :key="researcher.id"
+          :xs="24"
+          :sm="12"
+          :md="8"
+          :lg="6"
+        >
+          <researcher-card :researcher="researcher" />
+        </el-col>
+      </el-row>
+    </div>
+
+    <!-- 下半部分：分页区域 -->
+    <div class="pagination-section">
       <el-pagination
         layout="prev, pager, next"
         :total="totalResearchers"
@@ -99,98 +102,39 @@ export default {
 </script>
 
 <style scoped>
-/* 页面容器样式 */
 .researchers-page {
-  max-width: 1200px; /* 最大宽度 */
-  margin: 0 auto; /* 水平居中 */
-  padding: 0 20px; /* 内边距 */
-}
-
-/* 研究人员卡片样式 */
-.researcher-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  overflow: hidden;
-}
-
-.researcher-card:hover {
-  transform: translateY(-5px);
-}
-
-.researcher-card .profile-image {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 20px auto;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.researcher-card .name {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.researcher-card .title {
-  font-size: 0.9em;
-  color: #666;
-  text-align: center;
-  margin: 5px 0;
-}
-
-.researcher-card .department {
-  font-size: 0.9em;
-  color: #999;
-  text-align: center;
-  margin: 5px 0;
-}
-
-.researcher-card .expertise {
   display: flex;
-  justify-content: center;
-  margin: 10px 0;
+  flex-direction: column;
+  height: 100vh; /* 占满整个视口高度 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.researcher-card .expertise .el-tag {
-  margin: 0 5px;
+/* 上半部分：卡片区域 */
+.cards-section {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
-.researcher-card .publications {
-  font-size: 0.9em;
-  color: #666;
-  text-align: center;
-  margin: 10px 0;
+/* 卡片行布局 */
+.cards-section .el-row {
+  margin-bottom: 20px;
 }
 
-.researcher-card .contact-info {
-  font-size: 0.9em;
-  color: #666;
-  text-align: center;
-  margin: 10px 0;
+/* 下半部分：分页区域 */
+.pagination-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 0;
 }
 
-.researcher-card .bio {
-  font-size: 0.9em;
-  color: #666;
-  text-align: justify;
-  padding: 0 20px;
-  margin: 10px 0;
-}
-
-/* 分页组件容器样式 */
-.pagination {
-  margin-top: 30px; /* 上边距 */
-  display: flex; /* 弹性布局 */
-  justify-content: center; /* 水平居中 */
-}
-
-.pagination .el-pagination {
+/* 分页组件样式 */
+.pagination-section .el-pagination {
   background: #fff;
   padding: 10px 20px;
   border-radius: 4px;
